@@ -202,9 +202,7 @@ This project is structured for potential conference publication. It addresses a 
 
 The dual-factor regime structure (trend × volatility) is a novel contribution not commonly found in existing retail forecasting pipelines.
 
----
 
-## Author
 
 **[Your Name]**
 CHRIST University
