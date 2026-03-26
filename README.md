@@ -144,6 +144,93 @@ The project follows a 7-stage modular pipeline:
 
 ---
 
+## API Endpoints
+
+### Base URL
+http://127.0.0.1:8000/docs
+
+
+---
+
+### POST /elasticity
+
+Returns the regime-specific price elasticity along with a business interpretation.
+
+#### Request
+```json
+{
+  "log_price": -0.07,
+  "lag_1": 8.45,
+  "lag_7": 8.42,
+  "Promo": 1,
+  "volatility_7": 0.12,
+  "trend_7": 0.002,
+  "regime": "volatile"
+}
+
+Response
+{
+  "regime": "volatile",
+  "elasticity": -0.101426,
+  "interpretation": "A 1% price increase reduces demand by 0.10% in the volatile regime."
+}
+POST /forecast
+
+Performs multi-step autoregressive demand forecasting using a regime-aware model.
+
+Additional Field
+periods (int): Number of days to forecast (1–90, default = 1)
+Request
+{
+  "log_price": -0.07,
+  "lag_1": 8.45,
+  "lag_7": 8.42,
+  "Promo": 1,
+  "volatility_7": 0.12,
+  "trend_7": 0.002,
+  "regime": "volatile",
+  "periods": 7
+}
+Response
+{
+  "forecast": [8.47, 8.48, 8.46, 8.49, 8.50, 8.48, 8.51],
+  "periods": 7
+}
+POST /simulate
+
+Simulates demand across a range of prices and identifies the revenue-maximizing price.
+
+Additional Fields
+log_price_min (float)
+log_price_max (float)
+steps (int): Number of price points (2–100, default = 20)
+Request
+{
+  "log_price": -0.07,
+  "lag_1": 8.45,
+  "lag_7": 8.42,
+  "Promo": 1,
+  "volatility_7": 0.12,
+  "trend_7": 0.002,
+  "regime": "volatile",
+  "log_price_min": -0.15,
+  "log_price_max": 0.15,
+  "steps": 20
+}
+Response
+{
+  "optimal_log_price": 0.10,
+  "optimal_revenue": 6605.17,
+  "simulation": [
+    {
+      "log_price": -0.15,
+      "demand": 6610.2,
+      "revenue": 5677.3
+    }
+  ]
+}
+Memory full
+
 ## How to Run
 
 **1. Clone the repository**
