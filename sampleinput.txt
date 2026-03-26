@@ -1,0 +1,48 @@
+DOCS:
+
+http://127.0.0.1:8000/docs
+
+
+
+ELASTICITY:
+
+{
+  "log_price": 3.5,
+  "lag_1": 8.2,
+  "lag_7": 8.1,
+  "Promo": 0,
+  "volatility_7": 0.05,
+  "trend_7": 0.02,
+  "regime": "volatile"
+}
+
+
+FORECAST:
+
+{
+  "log_price": 3.5,
+  "lag_1": 8.2,
+  "lag_7": 8.1,
+  "Promo": 0,
+  "volatility_7": 0.05,
+  "trend_7": 0.02,
+  "regime": "volatile"
+  "periods":7
+}
+
+
+SIMULATE:
+
+{
+  "log_price": 3.5,
+  "lag_1": 8.2,
+  "lag_7": 8.1,
+  "Promo": 0,
+  "volatility_7": 0.05,
+  "trend_7": 0.02,
+  "regime": "stable",
+  "log_price_min": 3.0,
+  "log_price_max": 4.0,
+  "steps": 20
+}
+
