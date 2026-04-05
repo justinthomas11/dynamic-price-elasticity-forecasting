@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import List, Literal
-from models import get_elasticity, get_forecast, run_simulation
+from api.models import get_elasticity, get_forecast, run_simulation
 
 app = FastAPI(title="Rossmann Demand API")
 

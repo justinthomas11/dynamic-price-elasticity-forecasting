@@ -153,15 +153,15 @@ document.getElementById('simulation-form').addEventListener('submit', async (e) 
             parseFloat(elasticityRes.elasticity).toFixed(3);
         
         document.getElementById('card-forecast').querySelector('.metric-value').textContent = 
-            parseFloat(forecastRes.forecast[0]).toFixed(2);
+            parseFloat(forecastRes.predicted_sales[0]).toFixed(2);
 
         statusCard.textContent = "Success";
         statusCard.style.color = "#2dd4bf"; // success color
 
         // Update UI: Chart
-        if (simulationRes.log_prices && simulationRes.demands) {
-            demandChart.data.labels = simulationRes.log_prices.map(p => p.toFixed(2));
-            demandChart.data.datasets[0].data = simulationRes.demands;
+        if (simulationRes.curve) {
+            demandChart.data.labels = simulationRes.curve.map(c => c.log_price.toFixed(2));
+            demandChart.data.datasets[0].data = simulationRes.curve.map(c => c.sales);
             demandChart.update();
         }
 
