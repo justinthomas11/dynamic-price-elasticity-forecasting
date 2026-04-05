@@ -1,0 +1,12 @@
+[project]
+name = "rossmann-demand"
+version = "0.1.0"
+description = "FastAPI backend for demand forecasting"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "numpy",
+    "pandas",
+    "joblib"
+]

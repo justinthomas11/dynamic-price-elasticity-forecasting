@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/simulate",
+      "destination": "/api/main.py"
+    },
+    {
+      "source": "/elasticity",
+      "destination": "/api/main.py"
+    },
+    {
+      "source": "/forecast",
+      "destination": "/api/main.py"
+    },
+    {
+      "source": "/(.*)\\.(css|js|png|jpg|jpeg|svg|ico)",
+      "destination": "/frontend/$1.$2"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/index.html"
+    }
+  ]
+}
